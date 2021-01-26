@@ -23,5 +23,7 @@ echo ""
 echo "[SSH] Copying ssh key to pasteboard"
 pbcopy < ~/.ssh/id_rsa.pub
 
+read -p "Add your ssh key to github https://github.com/settings/keys. Click enter when you are done: " ssh_done
+
 echo "[SSH] Done"
 echo ""

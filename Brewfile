@@ -1,19 +1,20 @@
 cask_args appdir: "/Applications"
 
-# Tools
-brew "bash-completion"
-
-# iOS/Swift
-brew "fastlane"
-brew "swiftgen"
-brew "swiftlint"
+# Unix tools
+brew "jq"
+brew "jid"
+brew "dockutil"
+brew "mackup"
+brew "zsh-syntax-highlighting"
 
 # Apps
-cask "dropbox"
+cask "iterm2"
+cask "alfred"
+cask "bettertouchtool"
 cask "google-chrome"
-cask "postman"
-cask "sketch"
-cask "sourcetree"
-cask "spectacle"
+cask "bitwarden"
+cask "ivpn"
+cask "sublime-text"
+cask "phpstorm"
 cask "spotify"
-cask "visual-studio-code"
+cask "skype"

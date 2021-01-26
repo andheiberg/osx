@@ -1,16 +1,23 @@
 #!/bin/bash
 
 # DESCRIPTION
-# Configure developer tools (e.g. Xcode code snippets)
+# Configure developer tools (e.g. terminal, IDEs, etc.)
 
-# EXECUTION
+# Install OhMyZsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-echo "Copies Xcode code snippets..."
-path_src=Snippets
-path_dst=~/Library/Developer/Xcode/UserData/CodeSnippets
-mkdir $path_dst
-for file in $path_src/*.codesnippet; do
-	cp $file $path_dst/$(basename $file)
-done
-echo "Copies Xcode code snippets: DONE"
-echo ""
+# Install Powerlevel10k
+git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+
+# Install zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+cp .zshrc ~/.zshrc
+
+#"Enabling the Develop menu and the Web Inspector in Safari"
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
+defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
+
+#"Adding a context menu item for showing the Web Inspector in web views"
+defaults write NSGlobalDomain WebKitDeveloperExtras -bool true

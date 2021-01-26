@@ -5,21 +5,15 @@
 
 if ! command -v brew > /dev/null; then
     echo "[SYSTEM] Install Homebrew"
-    ruby -e "$(curl --location --fail --silent --show-error https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> ~/.zprofile
 else
     echo "[SYSTEM] Update Homebrew"
     brew update
 fi
 echo ""
 
-echo "[SYSTEM] Install Homebrew Cask"
-brew tap caskroom/cask-cask
-echo ""
+brew bundle
 
-echo "[SYSTEM] Install Brew Bundle"
-brew tap Homebrew/bundle
-echo ""
-
-echo "[SYSTEM] Update gem"
-gem update --system 
-echo ""
+cp .mackup.cfg ~/.mackup.cfg
+mackup restore
