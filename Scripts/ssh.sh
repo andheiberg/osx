@@ -20,6 +20,12 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 echo ""
 
+if [ ! -f ~/.ssh/config ]; then
+    echo 'Host *' >> ~/.ssh/config
+    echo 'UseKeychain yes' >> ~/.ssh/config
+    echo '' >> ~/.ssh/config
+fi
+
 echo "[SSH] Copying ssh key to pasteboard"
 pbcopy < ~/.ssh/id_rsa.pub
 
