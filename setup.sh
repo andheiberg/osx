@@ -80,6 +80,9 @@ process_option() {
     'system')
       source scripts/system.sh
       break;;
+    'backup')
+      source scripts/backup.sh
+      break;;
     'q')
       break;;
     *)
@@ -106,6 +109,7 @@ while true; do
     echo "      git:  Configure git (e.g. adding aliases)"
     echo "      ssh:  Create & copy SSH key"
     echo "   system:  Install System Software (e.g. Homebrew, Cask etc.)"
+    echo "   backup:  Save config (e.g. mackup backup)"
     echo ""
     echo "        q:  Quit/Exit."
     echo ""
