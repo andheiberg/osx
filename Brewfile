@@ -18,3 +18,7 @@ cask "sublime-text"
 cask "phpstorm"
 cask "spotify"
 cask "skype"
+cask "vlc"
+
+tap "homebrew/cask-versions"
+cask "tower2"
